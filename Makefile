@@ -1,7 +1,8 @@
 export BUILD_TOPDIR=$(PWD)
 export STAGING_DIR=$(BUILD_TOPDIR)/tmp
 
-export MAKECMD=make --silent ARCH=mips CROSS_COMPILE=mips-linux-gnu-
+export MAKECMD=make --silent ARCH=mips CROSS_COMPILE=mips-openwrt-linux-
+export PATH:=$(BUILD_TOPDIR)/toolchain/bin/:$(PATH)
 
 # boot delay (time to autostart boot command)
 export CONFIG_BOOTDELAY=1
@@ -171,6 +172,15 @@ dragino_v2_ms14:	export MAX_UBOOT_SIZE=192
 dragino_v2_ms14:	export DEVICE_VENDOR=dragino
 dragino_v2_ms14:
 	@cd $(BUILD_TOPDIR)/u-boot/ && $(MAKECMD) dragino_v2_ms14_config
+	@cd $(BUILD_TOPDIR)/u-boot/ && $(MAKECMD) ENDIANNESS=-EB V=1 all
+	@cp $(BUILD_TOPDIR)/u-boot/u-boot.bin $(BUILD_TOPDIR)/bin/temp.bin
+	@make show_size
+
+arbor_shield_v1:	export UBOOT_FILE_NAME=uboot_for_arbor_shield_v1
+arbor_shield_v1:	export MAX_UBOOT_SIZE=256
+arbor_shield_v1:	export DEVICE_VENDOR=arbor
+arbor_shield_v1:
+	@cd $(BUILD_TOPDIR)/u-boot/ && $(MAKECMD) arbor_shield_v1_config
 	@cd $(BUILD_TOPDIR)/u-boot/ && $(MAKECMD) ENDIANNESS=-EB V=1 all
 	@cp $(BUILD_TOPDIR)/u-boot/u-boot.bin $(BUILD_TOPDIR)/bin/temp.bin
 	@make show_size
