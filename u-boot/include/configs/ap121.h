@@ -67,7 +67,7 @@
 
 #elif defined(CONFIG_FOR_ARBOR_SHIELD_V1)
 
-        #define CONFIG_BOOTARGS "console=ttyS0,115200 root=31:02 rootfstype=squashfs init=/sbin/init mtdparts=ar7240-nor0:256k(u-boot),64k(u-boot-env),16000k(firmware),64k(ART)"
+    #define CONFIG_BOOTARGS "console=ttyATH0,250000 root=31:02 rootfstype=squashfs init=/sbin/init mtdparts=ar7240-nor0:256k(u-boot),64k(u-boot-env),16000k(firmware),64k(ART)"
 
 #endif
 
@@ -104,7 +104,7 @@
 #elif defined(CONFIG_FOR_DRAGINO_V2)
 	#define CONFIG_BOOTCOMMAND "bootm 0x9F040000"
 #elif defined(CONFIG_FOR_ARBOR_SHIELD_V1)
-    #define CONFIG_BOOTCOMMAND "bootm 0x9F050000"
+    #define CONFIG_BOOTCOMMAND "bootm 0x9fEa0000"
 #else
 	#define CONFIG_BOOTCOMMAND "bootm 0x9F020000"
 #endif
@@ -784,9 +784,9 @@
 	#define CFG_ENV_SIZE		0x8000
 	#define CFG_ENV_SECT_SIZE	0x10000
 #elif defined(CONFIG_FOR_ARBOR_SHIELD_V1)
-    #define CFG_ENV_ADDR            0x9F040000
-    #define CFG_ENV_SIZE            0x8000
-    #define CFG_ENV_SECT_SIZE       0x10000
+    #define CFG_ENV_ADDR        0x9F040000
+    #define CFG_ENV_SIZE        0x8000
+    #define CFG_ENV_SECT_SIZE   0x10000
 #else
 	#define CFG_ENV_ADDR		0x9F040000
 	#define CFG_ENV_SIZE		0x10000
@@ -915,7 +915,7 @@
 #elif defined(CONFIG_FOR_DRAGINO_V2)
 	#define WEBFAILSAFE_UPLOAD_KERNEL_ADDRESS			WEBFAILSAFE_UPLOAD_UBOOT_ADDRESS + 0x40000
 #elif defined(CONFIG_FOR_ARBOR_SHIELD_V1)
-    #define WEBFAILSAFE_UPLOAD_KERNEL_ADDRESS                       WEBFAILSAFE_UPLOAD_UBOOT_ADDRESS + 0x50000
+    #define WEBFAILSAFE_UPLOAD_KERNEL_ADDRESS           WEBFAILSAFE_UPLOAD_UBOOT_ADDRESS + 0x50000
 #else
 	#define WEBFAILSAFE_UPLOAD_KERNEL_ADDRESS			WEBFAILSAFE_UPLOAD_UBOOT_ADDRESS + 0x20000
 #endif
