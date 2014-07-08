@@ -127,8 +127,8 @@ LIBS += httpd/libhttpd.a
 LIBS += $(BOARDLIBS)
 
 ifeq ($(COMPRESSED_UBOOT),1)
-LIBS_BOOTSTRAP = lib_bootstrap/libbootstrap.a 
-LIBS_BOOTSTRAP += board/$(BOARDDIR)/lib$(BOARD).a 
+LIBS_BOOTSTRAP = lib_bootstrap/libbootstrap.a
+LIBS_BOOTSTRAP += board/$(BOARDDIR)/lib$(BOARD).a
 LIBS_BOOTSTRAP += cpu/$(CPU)/lib$(CPU).a
 LIBS_BOOTSTRAP += cpu/$(CPU)/$(SOC)/lib$(SOC).a
 endif
@@ -193,7 +193,7 @@ $(SUBDIRS):
 ifeq ($(COMPRESSED_UBOOT),1)
 LZMA = $(BUILD_TOPDIR)/host_util/lzma
 
-tuboot.bin:	System.map bootstrap.bin u-boot.lzimg	
+tuboot.bin:	System.map bootstrap.bin u-boot.lzimg
 		@cat bootstrap.bin > $@
 		@cat u-boot.lzimg >> $@
 
@@ -305,7 +305,7 @@ wr703n_config : unconfig hornet_common_config
 	@echo "#define GPIO_RST_BUTTON_BIT                 11" >> include/config.h
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB             4" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for TL-WR703N\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 wr720n_v3_CH_config : unconfig hornet_common_config
@@ -316,7 +316,7 @@ wr720n_v3_CH_config : unconfig hornet_common_config
 	@echo "#define GPIO_RST_BUTTON_BIT                 11" >> include/config.h
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB             4" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for TL-WR720N v3 CH\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 wr710n_config : unconfig hornet_common_config
@@ -327,7 +327,7 @@ wr710n_config : unconfig hornet_common_config
 	@echo "#define GPIO_RST_BUTTON_BIT                 11" >> include/config.h
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB             8" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for TL-WR710N\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 mr3020_config : unconfig hornet_common_config
@@ -344,7 +344,7 @@ mr3020_config : unconfig hornet_common_config
 	@echo "#define GPIO_RST_BUTTON_BIT                 11" >> include/config.h
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB             4" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for TL-MR3020\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 mr3040_config : unconfig hornet_common_config
@@ -359,7 +359,7 @@ mr3040_config : unconfig hornet_common_config
 	@echo "#define GPIO_RST_BUTTON_BIT                 11" >> include/config.h
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB             4" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for TL-MR3040\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 mr10u_config : unconfig hornet_common_config
@@ -370,7 +370,7 @@ mr10u_config : unconfig hornet_common_config
 	@echo "#define GPIO_RST_BUTTON_BIT                 11" >> include/config.h
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB             4" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for TL-MR10U\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 mr13u_config : unconfig hornet_common_config
@@ -381,7 +381,7 @@ mr13u_config : unconfig hornet_common_config
 	@echo "#define GPIO_RST_BUTTON_BIT                 11" >> include/config.h
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB             4" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for TL-MR13U\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 wr740n_v4_config : unconfig hornet_common_config
@@ -406,7 +406,7 @@ wr740n_v4_config : unconfig hornet_common_config
 	@echo "#define GPIO_RST_BUTTON_BIT                 11" >> include/config.h
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB             4" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for TL-WR74xN/D v4\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 mr3220_v2_config : unconfig hornet_common_config
@@ -433,7 +433,7 @@ mr3220_v2_config : unconfig hornet_common_config
 	@echo "#define GPIO_RST_BUTTON_BIT                 11" >> include/config.h
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB             4" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for TL-MR3220 v2\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 dir505_config : unconfig hornet_common_config
@@ -445,10 +445,10 @@ dir505_config : unconfig hornet_common_config
 	# we will use WPS button instead of reset
 	@echo "#define GPIO_RST_BUTTON_BIT                 11" >> include/config.h
 	@echo "#define GPIO_RST_BUTTON_IS_ACTIVE_LOW        1" >> include/config.h
-	
+
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB             8" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for DIR-505\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 gs_oolite_v1_dev_config : unconfig hornet_common_config
@@ -465,7 +465,7 @@ gs_oolite_v1_dev_config : unconfig hornet_common_config
 	@echo "#define GPIO_RST_BUTTON_BIT                 11" >> include/config.h
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB            16" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for GS-Oolite v1\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 carambola2_config : unconfig hornet_common_config
@@ -487,7 +487,7 @@ carambola2_config : unconfig hornet_common_config
 
 	@echo "#define DEFAULT_FLASH_SIZE_IN_MB            16" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for CARAMBOLA2 v1\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
 
 dragino_v2_ms14_config : unconfig hornet_common_config
@@ -508,10 +508,10 @@ dragino_v2_ms14_config : unconfig hornet_common_config
 	@echo "#define WEBFAILSAFE_DISABLE_ART_UPGRADE      1" >> include/config.h
 	@echo "#define WEBFAILSAFE_DISABLE_UBOOT_UPGRADE    1" >> include/config.h
 	@echo "#define BOARD_CUSTOM_STRING                  \"AP121 (AR9331) U-Boot for Dragino v2 MS14\"" >> include/config.h
-	
+
 	@./mkconfig -a ap121 mips mips ap121 ar7240 ar7240
-	
-arbor_shield_v1_config : unconfig hornet_common_config
+
+arbor_linux_shield_v1_config : unconfig hornet_common_config
 	@echo '======= Configuring for Arbor Shield v1 at:' `date` '======='
 	@echo "#define CONFIG_FOR_ARBOR_SHIELD_V1          1" >> include/config.h
 	@echo "#undef COMPRESSED_UBOOT"                        >> include/config.h

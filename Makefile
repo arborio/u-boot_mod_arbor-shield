@@ -18,7 +18,7 @@ tplink_mr3020:
 	@cd $(BUILD_TOPDIR)/u-boot/ && $(MAKECMD) ENDIANNESS=-EB V=1 all
 	@cp $(BUILD_TOPDIR)/u-boot/tuboot.bin $(BUILD_TOPDIR)/bin/temp.bin
 	@make show_size
-	
+
 tplink_wr703n:	export UBOOT_FILE_NAME=uboot_for_tp-link_tl-wr703n
 tplink_wr703n:	export MAX_UBOOT_SIZE=64
 tplink_wr703n:	export COMPRESSED_UBOOT=1
@@ -176,11 +176,11 @@ dragino_v2_ms14:
 	@cp $(BUILD_TOPDIR)/u-boot/u-boot.bin $(BUILD_TOPDIR)/bin/temp.bin
 	@make show_size
 
-arbor_shield_v1:	export UBOOT_FILE_NAME=uboot_for_arbor_shield_v1
-arbor_shield_v1:	export MAX_UBOOT_SIZE=256
-arbor_shield_v1:	export DEVICE_VENDOR=arbor
-arbor_shield_v1:
-	@cd $(BUILD_TOPDIR)/u-boot/ && $(MAKECMD) arbor_shield_v1_config
+arbor_linux_shield_v1:	export UBOOT_FILE_NAME=uboot_for_arbor_linux_shield_v1
+arbor_linux_shield_v1:	export MAX_UBOOT_SIZE=256
+arbor_linux_shield_v1:	export DEVICE_VENDOR=arbor
+arbor_linux_shield_v1:
+	@cd $(BUILD_TOPDIR)/u-boot/ && $(MAKECMD) arbor_linux_shield_v1_config
 	@cd $(BUILD_TOPDIR)/u-boot/ && $(MAKECMD) ENDIANNESS=-EB V=1 all
 	@cp $(BUILD_TOPDIR)/u-boot/u-boot.bin $(BUILD_TOPDIR)/bin/temp.bin
 	@make show_size
